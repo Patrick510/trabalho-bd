@@ -44,7 +44,7 @@ curl -fsSL https://pgp.mongodb.com/server-7.0.asc | sudo gpg -o /usr/share/keyri
 Após importar os pacotes oficiais do MongoDB, crie um arquivo de lista para instalação. O comando varia dependendo da sua versão do Ubuntu. Para o Ubuntu 22.04 ou posterior, execute:
 
 ```
-echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list`
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
 ```
 
 Atualize o repositório APT para sincronizar o banco de dados local:
@@ -90,3 +90,5 @@ Reinicie o MongoDB usando este comando para aplicar as alterações:
 ```
 sudo systemctl restart mongod
 ```
+
+Para executar digite `mongosh`

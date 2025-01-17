@@ -12,6 +12,14 @@ Este projeto demonstra a execução de tarefas comuns em um banco de dados Mongo
 
 ---
 
+## Contextualização
+
+Antes de iniciar no MongoDB, é necessário gerar os registros em formato JSON que serão utilizados como base de dados. Isso é feito através do script `gerar-dados.py`, que cria um arquivo chamado `dados.json` contendo 1000 registros fictícios.
+
+Após a geração do arquivo, ele será importado para o MongoDB para permitir a execução das operações descritas no projeto.
+
+---
+
 ## Execução
 
 1. Para executar o script Python, use:

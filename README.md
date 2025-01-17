@@ -1,7 +1,5 @@
 # Projeto de Banco de Dados com MongoDB
 
-## Visão Geral
-
 Este projeto demonstra a execução de tarefas comuns em um banco de dados MongoDB, incluindo:
 
 - Importação de dados.
@@ -10,15 +8,11 @@ Este projeto demonstra a execução de tarefas comuns em um banco de dados Mongo
 
 📹 **Confira o vídeo explicativo:** [Link para o vídeo](https://youtu.be/OXSjNXi4t2I)
 
----
-
 ## Contextualização
 
 Antes de iniciar no MongoDB, é necessário gerar os registros em formato JSON que serão utilizados como base de dados. Isso é feito através do script `gerar-dados.py`, que cria um arquivo chamado `dados.json` contendo 1000 registros fictícios.
 
 Após a geração do arquivo, ele será importado para o MongoDB para permitir a execução das operações descritas no projeto.
-
----
 
 ## Execução
 
@@ -41,8 +35,6 @@ Após a geração do arquivo, ele será importado para o MongoDB para permitir a
 
 Para mais detalhes, assista ao [vídeo explicativo](https://youtu.be/OXSjNXi4t2I).
 
----
-
 ## Scripts Utilizados
 
 ### Gerar Dados
@@ -56,8 +48,6 @@ O script `gerar-dados.py` gera 1000 registros para o MongoDB:
 ### Comandos MongoDB
 
 Os comandos MongoDB estão descritos no arquivo `script.js` e podem ser executados diretamente no terminal do MongoDB.
-
----
 
 ## Requisitos Cumpridos
 
@@ -77,8 +67,6 @@ Após gerar o arquivo `dados.json`, utilizamos o comando abaixo para importar os
 ```bash
 mongoimport --db bdTrabalho --collection myCollection --file dados.json --jsonArray
 ```
-
----
 
 ### ✅ Inserção de novos documentos
 
@@ -101,8 +89,6 @@ db.myCollection.insertMany([
 ]);
 ```
 
----
-
 ### ✅ Atualização dos dados dos documentos
 
 Atualizar um único documento:
@@ -120,8 +106,6 @@ db.myCollection.updateMany(
 );
 ```
 
----
-
 ### ✅ Exclusão de documentos
 
 Excluir um único documento:
@@ -135,8 +119,6 @@ Excluir múltiplos documentos:
 ```javascript
 db.myCollection.deleteMany({ idade: { $lt: 30 } });
 ```
-
----
 
 ### ✅ Consultas aos documentos cadastrados
 
@@ -157,8 +139,6 @@ Consultar e projetar campos específicos:
 ```javascript
 db.myCollection.find({ cidade: "Salvador" }, { nome: 1, idade: 1 });
 ```
-
----
 
 ### ✅ Utilização de operações de agregação
 

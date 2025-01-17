@@ -1,94 +1,170 @@
-# O que fazer?
+# Projeto de Banco de Dados com MongoDB
 
-- Criar um script para o MongoDB que contenha operações de:
+## Visão Geral
 
-# criação do BD;
+Este projeto demonstra a execução de tarefas comuns em um banco de dados MongoDB, incluindo:
 
-- importação a partir de um arquivo para uma collection do BD criado (mínimo 1000 registros);
-- inserção de novos documentos;
-- atualização dos dados dos documentos;
-- exclusão de documentos;
-- consultas aos documentos cadastrados;
-- Utilização de operações de agregação;
+- Importação de dados.
+- Inserção, atualização e exclusão de documentos.
+- Consultas e operações de agregação.
 
-# O que entregar?
+📹 **Confira o vídeo explicativo:** [Link para o vídeo](https://youtu.be/OXSjNXi4t2I)
 
-- script;
-- arquivo de dados;
-- breve detalhamento de como executar;
-- slides se for utilizar;
-- link para o(s) vídeo(s) produzido(s) pelo estudante, conforme descrito a seguir
+---
 
-# Apresentação no formato de Vídeo
+## Execução
 
-- Grave um ou vários vídeos, que somados tenham entre 7 e 10 minutos.
-- Uso obrigatório de sua imagem e compartilhamento da tela do computador, explicando o que foi desenvolvido.
-- Pode usar o meet com a conta institucional ou qualquer outro aplicativo de gravação.
-- Compartilhar o(s) vídeo(s) com o professor.
-- Náo se preocupe em editá-los, pois estou interessado apenas nas ideias.
+1. Para executar o script Python, use:
 
-# Instalando mongoDB no ubuntu
+   - **Linux/MacOS:** `python3 gerar_dados.py`
+   - **Windows:** `python gerar_dados.py`
 
-Antes de instalar o pacote MongoDB, baixe o GnuPG e o utilitário cURL executando este comando na sua interface de linha de comando:
+   Caso o Python não esteja instalado, [clique aqui](https://www.python.org/downloads/) para acessar o tutorial de instalação.
 
-```
-sudo apt-get install -y gnupg curl
-```
+2. Importe o arquivo gerado para o MongoDB utilizando:
 
-Use o cURL e o GnuPG para importar a chave pública GPG do MongoDB e recuperar o pacote de instalação:
+   ```bash
+   mongoimport --db bdTrabalho --collection myCollection --file dados.json --jsonArray
+   ```
 
-```
-curl -fsSL https://pgp.mongodb.com/server-7.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
-```
+   Caso o MongoDB não esteja instalado, [clique aqui](https://www.mongodb.com/docs/manual/installation/) para acessar o guia de instalação.
 
-Após importar os pacotes oficiais do MongoDB, crie um arquivo de lista para instalação. O comando varia dependendo da sua versão do Ubuntu. Para o Ubuntu 22.04 ou posterior, execute:
+3. Utilize os comandos do `script.js` para executar as operações descritas.
 
-```
-echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+Para mais detalhes, assista ao [vídeo explicativo](https://youtu.be/OXSjNXi4t2I).
+
+---
+
+## Scripts Utilizados
+
+### Gerar Dados
+
+O script `gerar-dados.py` gera 1000 registros para o MongoDB:
+
+```python
+# Script completo para geração de dados
 ```
 
-Atualize o repositório APT para sincronizar o banco de dados local:
+### Comandos MongoDB
 
-```
-sudo apt-get update
-```
+Os comandos MongoDB estão descritos no arquivo `script.js` e podem ser executados diretamente no terminal do MongoDB.
 
-Execute o comando abaixo para instalar a versão estável mais recente do MongoDB usando o sistema de gerenciamento de pacotes APT:
+---
 
-```
-sudo apt-get install -y mongodb-org
-```
+## Requisitos Cumpridos
 
-# Inicie o Serviço MongoDB
+### ✅ Importação a partir de um arquivo para uma collection do BD criado (mínimo 1000 registros)
 
-Após a instalação, execute o MongoDB Community Edition inserindo o seguinte:
+O arquivo `gerar-dados.py` gera um arquivo JSON com 1000 registros fictícios:
 
-```
-sudo systemctl start mongod
-```
+```python
+import json
+import random
 
-O comando systemctl é essencial para a gestão do serviço MongoDB. Por exemplo, se você encontrar um erro, execute o seguinte para reiniciar os serviços em execução e tente iniciar o DBMS novamente:
-
-```
-sudo systemctl daemon-reload
+# Código para gerar os dados
 ```
 
-Para descobrir se o MongoDB carregou corretamente, verifique seu status com este comando:
+Após gerar o arquivo `dados.json`, utilizamos o comando abaixo para importar os dados para o MongoDB:
 
-```
-sudo systemctl status mongod
-```
-
-Por padrão, o serviço não inicia a partir da inicialização. Para que ele seja carregado automaticamente na inicialização, habilite o MongoDB usando o seguinte comando:
-
-```
-sudo systemctl enable mongod
+```bash
+mongoimport --db bdTrabalho --collection myCollection --file dados.json --jsonArray
 ```
 
-Reinicie o MongoDB usando este comando para aplicar as alterações:
+---
 
-```
-sudo systemctl restart mongod
+### ✅ Inserção de novos documentos
+
+Exemplo de inserção de um único documento:
+
+```javascript
+db.myCollection.insertOne({
+  nome: "Carlos Mendes",
+  idade: 28,
+  cidade: "Belo Horizonte",
+});
 ```
 
-Para executar digite `mongosh`
+Inserção de múltiplos documentos:
+
+```javascript
+db.myCollection.insertMany([
+  { nome: "Ana Paula", idade: 35, cidade: "Fortaleza" },
+  { nome: "Paulo André", idade: 22, cidade: "Curitiba" },
+]);
+```
+
+---
+
+### ✅ Atualização dos dados dos documentos
+
+Atualizar um único documento:
+
+```javascript
+db.myCollection.updateOne({ nome: "Carlos Mendes" }, { $set: { idade: 29 } });
+```
+
+Atualizar múltiplos documentos:
+
+```javascript
+db.myCollection.updateMany(
+  { cidade: "São Paulo" },
+  { $set: { cidade: "Salvador" } }
+);
+```
+
+---
+
+### ✅ Exclusão de documentos
+
+Excluir um único documento:
+
+```javascript
+db.myCollection.deleteOne({ nome: "Paulo Souza" });
+```
+
+Excluir múltiplos documentos:
+
+```javascript
+db.myCollection.deleteMany({ idade: { $lt: 30 } });
+```
+
+---
+
+### ✅ Consultas aos documentos cadastrados
+
+Consultar todos os documentos:
+
+```javascript
+db.myCollection.find();
+```
+
+Consultar documentos com filtro:
+
+```javascript
+db.myCollection.find({ idade: { $gt: 30 } });
+```
+
+Consultar e projetar campos específicos:
+
+```javascript
+db.myCollection.find({ cidade: "Salvador" }, { nome: 1, idade: 1 });
+```
+
+---
+
+### ✅ Utilização de operações de agregação
+
+Contar o número de pessoas por cidade:
+
+```javascript
+db.myCollection.aggregate([{ $group: { _id: "$cidade", total: { $sum: 1 } } }]);
+```
+
+Calcular a média de idade por cidade e ordenar por média de idade (decrescente):
+
+```javascript
+db.myCollection.aggregate([
+  { $group: { _id: "$cidade", mediaIdade: { $avg: "$idade" } } },
+  { $sort: { mediaIdade: -1 } },
+]);
+```

@@ -1,31 +1,32 @@
-# O que fazer?
+# Desenvolva os seguintes exercícios no MongoDB,
 
-- Criar um script para o MongoDB que contenha operações de:
+## utilizando a base de dados Livros, utilizada nas aulas anteriores
 
-# criação do BD;
-
-- importação a partir de um arquivo para uma collection do BD criado (mínimo 1000 registros);
-- inserção de novos documentos;
-- atualização dos dados dos documentos;
-- exclusão de documentos;
-- consultas aos documentos cadastrados;
-- Utilização de operações de agregação;
-
-# O que entregar?
-
-- script;
-- arquivo de dados;
-- breve detalhamento de como executar;
-- slides se for utilizar;
-- link para o(s) vídeo(s) produzido(s) pelo estudante, conforme descrito a seguir
-
-# Apresentação no formato de Vídeo
-
-- Grave um ou vários vídeos, que somados tenham entre 7 e 10 minutos.
-- Uso obrigatório de sua imagem e compartilhamento da tela do computador, explicando o que foi desenvolvido.
-- Pode usar o meet com a conta institucional ou qualquer outro aplicativo de gravação.
-- Compartilhar o(s) vídeo(s) com o professor.
-- Náo se preocupe em editá-los, pois estou interessado apenas nas ideias.
+1.  Lista alfabeticamente ordenada das categorias (sem repetição)
+2.  Quantidade de livros de cada categoria, ordenada pelas maiores
+    quantidades;
+3.  Média de páginas dos livros das categorias Java e/ou Python, com data de
+    publicação a partir do ano de 2008
+4.  Atualizar os livros com status MEAP, que estejam com páginas zeradas
+    para "Necessitam atualização páginas"
+5.  Criar uma collection resumo_autor com o resultado da seguinte
+    consulta:
+    autor, quantidade de livros publicados pelo autor, média de páginas
+    dos livros por ele publicados
+6.  Livros cujo isbn inicia com '19' e que possuam no máximo 400 páginas
+7.  Títulos e descrições dos livros, que possuem em sua descrição uma
+    sequência de texto. Exemplos:
+    'programming and business'
+    'will help you decode the possibilities'
+8.  Quantidade de livros e média de páginas dos títulos com status PUBLISH
+    publicados em cada ano
+9.  Cinco autores que mais publicaram livros nos meses de junho e julho
+10. Criar uma collection com os IDs e os títulos de todos os livros
+    sem categoria cadastrada
+11. Para os autores que escreveram pelo menos 5 títulos, a quantidade
+    de livros escritos por cada autor, em ordem alfabética
+12. Analisar o campo thumbnailUrl e extrair o nome do servidor e o
+    nome do arquivo que com as miniaturas das imagens dos livro
 
 # Instalando mongoDB no ubuntu
 
